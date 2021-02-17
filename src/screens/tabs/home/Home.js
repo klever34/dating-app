@@ -1,11 +1,13 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {colors, baseUrl} from '../../../constants/index';
-import {AuthContext} from '../../../../context';
+import {SamplePictures} from '../../../constants/Pics';
 import AsyncStorage from '@react-native-community/async-storage';
 import axios from 'axios';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Header from '../../../components/Header';
+import Swiper from 'react-native-deck-swiper';
+import { Card } from '../../../components/Card'
 
 const Home = (props) => {
   const iconSelected = (icon) => {
@@ -14,16 +16,105 @@ const Home = (props) => {
 
   return (
     <View style={{flex: 1, backgroundColor: colors.bgColor}}>
-      <Header
+      {/* <Header
         title={'Home'}
         selectedIcon={iconSelected}
         navigation={props.navigation}
-      />
+      /> */}
+      <View style={styles.container}>
+        <Swiper
+          cards={SamplePictures}
+          renderCard={Card}
+          infinite
+          backgroundColor="white"
+          cardHorizontalMargin={0}
+          stackSize={2}
+          onSwiped={() => console.log("swiped")}
+          onSwipedLeft={() => console.log("swiped")}
+          onSwipedRight={() => console.log("swiped")}
+          onSwipedTop={() => console.log("swiped")}
+          onSwipedBottom={() => console.log("swiped")}
+          overlayLabels={{
+            bottom: {
+              title: 'BLEAH',
+              style: {
+                label: {
+                  backgroundColor: 'black',
+                  borderColor: 'black',
+                  color: 'white',
+                  borderWidth: 1
+                },
+                wrapper: {
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }
+              }
+            },
+            left: {
+              title: 'NOPE',
+              style: {
+                label: {
+                  backgroundColor: 'black',
+                  borderColor: 'black',
+                  color: 'white',
+                  borderWidth: 1
+                },
+                wrapper: {
+                  flexDirection: 'column',
+                  alignItems: 'flex-end',
+                  justifyContent: 'flex-start',
+                  marginTop: 30,
+                  marginLeft: -30
+                }
+              }
+            },
+            right: {
+              title: 'LIKE',
+              style: {
+                label: {
+                  backgroundColor: 'black',
+                  borderColor: 'black',
+                  color: 'white',
+                  borderWidth: 1
+                },
+                wrapper: {
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  justifyContent: 'flex-start',
+                  marginTop: 30,
+                  marginLeft: 30
+                }
+              }
+            },
+            top: {
+              title: 'SUPER LIKE',
+              style: {
+                label: {
+                  backgroundColor: 'black',
+                  borderColor: 'black',
+                  color: 'white',
+                  borderWidth: 1
+                },
+                wrapper: {
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }
+              }
+            }
+          }}
+        />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'transparent',
+  },
   bigLogin: {
     color: '#006499',
     fontFamily: 'Poppins-Bold',

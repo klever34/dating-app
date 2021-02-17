@@ -78,7 +78,7 @@ const TabsScreen = (props) => (
       activeTintColor: colors.primary,
       inactiveTintColor: '#4F4F4F',
       labelStyle: {
-        fontSize: 9,
+        fontSize: 14,
         fontFamily: 'Poppins-Medium',
       },
       style: {
