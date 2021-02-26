@@ -10,6 +10,7 @@ import {colors} from '../constants/index';
 import Home from '../screens/tabs/home/Home';
 import Profile from '../screens/tabs/profile/Profile';
 import Messages from '../screens/tabs/chat/Messages';
+import ChatScreen from '../screens/tabs/chat/ChatScreen';
 
 const HomeStack = createStackNavigator();
 const HomeStackScreen = () => {
@@ -34,6 +35,7 @@ const MessagesStackScreen = () => {
   return (
     <MessagesStack.Navigator headerMode="none">
       <MessagesStack.Screen name="Messages" component={Messages} />
+      <MessagesStack.Screen name="ChatScreen" component={ChatScreen} />
     </MessagesStack.Navigator>
   );
 };
